@@ -10,23 +10,39 @@ import UIKit
 final class GreetingViewController: UIViewController {
     
     @IBOutlet var greetingLabel: UILabel!
-    @IBOutlet var backgroundView: UIView!
     
-    var showGreeting: String!
+    var user = ""
+    
+    private let primaryColor = UIColor(
+        red: 210/255,
+        green: 109/255,
+        blue: 128/255,
+        alpha: 1
+    )
+    private let secondaryColor = UIColor(
+        red: 107/255,
+        green: 148/255,
+        blue: 230/255,
+        alpha: 1
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        greetingLabel.text = showGreeting
-        
-        let colorTop = UIColor(red: 0.87, green: 0.37, blue: 0.54, alpha: 1).cgColor
-        let colorBottom = UIColor(red: 0.97, green: 0.73, blue: 0.59, alpha: 1).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.backgroundView.bounds
-        gradientLayer.colors = [colorTop, colorBottom]
-        self.backgroundView.layer.insertSublayer(gradientLayer, at: 0)
-        
+        view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        greetingLabel.text = "Welcome, \(user)!"
     }
     
+}
+
+// MARK: - Set background color
+extension UIView {
+    func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
+        let gradient = CAGradientLayer()
+        gradient.frame = bounds
+        gradient.colors = [topColor.cgColor, bottomColor.cgColor]
+        gradient.locations = [0.0, 1.0]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+        layer.insertSublayer(gradient, at: 0)
+    }
 }
