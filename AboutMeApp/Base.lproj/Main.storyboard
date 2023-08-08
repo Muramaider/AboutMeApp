@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -52,17 +53,17 @@
                                             <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="forgetUsernameButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="V5J-Of-bAO"/>
+                                            <action selector="forgotRegisterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qlt-pX-CsP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7a-mQ-Y8g">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7a-mQ-Y8g">
                                         <rect key="frame" x="178" y="0.0" width="148" height="29.666666666666668"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Forget Password?">
                                             <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="forgetPasswordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="BGx-f5-kuW"/>
+                                            <action selector="forgotRegisterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vBs-3W-wZa"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -98,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9B-nF-xbC">
-                                <rect key="frame" x="60" y="560.66666666666663" width="270" height="32"/>
+                                <rect key="frame" x="60" y="586" width="270" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="6kU-zK-l4Q"/>
                                 </constraints>
@@ -112,7 +113,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👋" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hx6-w5-Quh">
-                                <rect key="frame" x="145" y="195.66666666666666" width="100" height="99.999999999999972"/>
+                                <rect key="frame" x="145" y="151.66666666666666" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="twI-CZ-x8x"/>
                                     <constraint firstAttribute="height" constant="100" id="v88-Yn-L7X"/>
@@ -122,7 +123,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtJ-X2-dq9">
-                                <rect key="frame" x="32" y="124.00000000000001" width="326" height="31.666666666666671"/>
+                                <rect key="frame" x="32" y="80" width="326" height="31.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -143,7 +144,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="omf-b0-WB9"/>
                     <connections>
-                        <outlet property="backgroundView" destination="Cbg-Af-8i5" id="Yg5-Rl-l4Q"/>
                         <outlet property="greetingLabel" destination="QtJ-X2-dq9" id="Cqy-Jt-1lJ"/>
                     </connections>
                 </viewController>
