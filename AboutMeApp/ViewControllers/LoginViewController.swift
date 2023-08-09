@@ -12,11 +12,10 @@ final class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var userPasswordTF: UITextField!
     
-    private let user = "User"
-    private let password = "11"
+    private let user = User.getUser()
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard userNameTF.text == user, userPasswordTF.text == password else {
+        guard userNameTF.text == user.login, userPasswordTF.text == user.password else {
             showAlert(
                 title: "Invalid login or password",
                 message: "Please, enter correct login and password",
@@ -28,8 +27,16 @@ final class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let greetingVC = segue.destination as? GreetingViewController else { return }
-        greetingVC.user = user
+        guard let tabBarController = segue.destination as? UITabBarController else { return }
+        tabBarController.viewControllers?.forEach { viewController in
+            if let greetingVC = viewController as? GreetingViewController {
+                greetingVC.user = user
+            } else if let navigationVC = viewController as? UINavigationController {
+                if let infoVC = navigationVC.topViewController as? UserInfoViewController {
+                    infoVC.user = user
+                }
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -39,8 +46,8 @@ final class LoginViewController: UIViewController {
     
     @IBAction func forgotRegisterData(_ sender: UIButton) {
         sender.tag == 0
-            ? showAlert(title: "Oops!", message: "Your name is \(user) 😉")
-            : showAlert(title: "Oops!", message: "Your password is \(password) 😉")
+        ? showAlert(title: "Oops!", message: "Your name is \(user.login) 😉")
+        : showAlert(title: "Oops!", message: "Your password is \(user.password) 😉")
         
     }
     
